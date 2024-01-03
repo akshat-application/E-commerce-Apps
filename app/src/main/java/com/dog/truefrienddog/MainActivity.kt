@@ -1,8 +1,6 @@
 package com.dog.truefrienddog
 
-import android.content.BroadcastReceiver
 import android.content.Context
-import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
@@ -19,7 +17,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -41,9 +38,6 @@ import com.dog.truefrienddog.screen.SplashScreen
 import com.dog.truefrienddog.ui.theme.TrueFriendDogTheme
 import com.dog.truefrienddog.utils.AppConstant
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.flowOf
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -59,7 +53,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val navController = rememberNavController()
-                    if(isNetwork) {
+                    if (isNetwork) {
                         AppNavHost(navController = navController)
                     } else {
                         Box(
@@ -69,7 +63,8 @@ class MainActivity : ComponentActivity() {
                         ) {
                             Column(
                                 modifier = Modifier
-                                    .padding(4.dp).align(Alignment.Center)
+                                    .padding(4.dp)
+                                    .align(Alignment.Center)
                             ) {
                                 Text(
                                     text = AppConstant.NO_INTERNET_DIALOG,
@@ -79,7 +74,8 @@ class MainActivity : ComponentActivity() {
                                 Box(
                                     Modifier
                                         .padding(4.dp)
-                                        .background(color = Color.Blue).clickable {
+                                        .background(color = Color.Blue)
+                                        .clickable {
                                             isNetwork = isNetworkAvailable(this@MainActivity)
                                         }
                                 ) {
@@ -97,11 +93,13 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    fun isNetworkAvailable(context: Context): Boolean {
-        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    private fun isNetworkAvailable(context: Context): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             val activeNetwork = connectivityManager.activeNetwork ?: return false
-            val networkCapabilities = connectivityManager.getNetworkCapabilities(activeNetwork) ?: return false
+            val networkCapabilities =
+                connectivityManager.getNetworkCapabilities(activeNetwork) ?: return false
             networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
         } else {
             val networkInfo = connectivityManager.activeNetworkInfo
