@@ -1,4 +1,4 @@
-package com.dog.truefrienddog.services
+package com.akshat.eCommerce.services
 
 import android.app.Notification
 import android.app.PendingIntent
@@ -6,8 +6,8 @@ import android.app.Service
 import android.content.Intent
 import android.os.IBinder
 import androidx.core.app.NotificationCompat
-import com.dog.truefrienddog.MainActivity
-import com.dog.truefrienddog.services.Notification.Companion.CHANNELID
+import com.akshat.eCommerce.MainActivity
+import com.akshat.eCommerce.services.Notification.Companion.CHANNELID
 
 
 class NotificationServices : Service() {

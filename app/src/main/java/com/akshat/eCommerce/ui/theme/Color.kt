@@ -1,4 +1,4 @@
-package com.dog.truefrienddog.ui.theme
+package com.akshat.eCommerce.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

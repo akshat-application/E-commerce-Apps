@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace 'com.dog.truefrienddog'
+    namespace 'com.akshat.eCommerce'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.dog.truefrienddog"
+        applicationId "com.akshat.eCommerce"
         minSdk 24
         targetSdk 34
         versionCode 1

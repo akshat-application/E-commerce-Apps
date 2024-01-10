@@ -1,4 +1,4 @@
-package com.dog.truefrienddog
+package com.akshat.eCommerce
 
 import org.junit.Test
 

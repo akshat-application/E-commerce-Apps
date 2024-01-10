@@ -1,4 +1,4 @@
-package com.dog.truefrienddog
+package com.akshat.eCommerce
 
 import android.content.Context
 import android.net.ConnectivityManager
@@ -31,12 +31,12 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.dog.truefrienddog.navigation.RootItems
-import com.dog.truefrienddog.screen.MainScreen
-import com.dog.truefrienddog.screen.MatchScreen
-import com.dog.truefrienddog.screen.SplashScreen
-import com.dog.truefrienddog.ui.theme.TrueFriendDogTheme
-import com.dog.truefrienddog.utils.AppConstant
+import com.akshat.eCommerce.navigation.RootItems
+import com.akshat.eCommerce.screen.MainScreen
+import com.akshat.eCommerce.screen.MatchScreen
+import com.akshat.eCommerce.screen.SplashScreen
+import com.akshat.eCommerce.ui.theme.TrueFriendDogTheme
+import com.akshat.eCommerce.utils.AppConstant
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

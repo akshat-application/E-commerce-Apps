@@ -1,4 +1,4 @@
-package com.dog.truefrienddog.screen
+package com.akshat.eCommerce.screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

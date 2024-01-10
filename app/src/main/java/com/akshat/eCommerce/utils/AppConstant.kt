@@ -1,4 +1,4 @@
-package com.dog.truefrienddog.utils
+package com.akshat.eCommerce.utils
 
 object AppConstant {
 const val NO_INTERNET_DIALOG = "No Internet Connection"

@@ -1,4 +1,4 @@
-package com.dog.truefrienddog.services
+package com.akshat.eCommerce.services
 
 import android.app.Application
 import android.app.NotificationChannel

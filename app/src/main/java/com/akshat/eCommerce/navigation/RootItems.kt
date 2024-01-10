@@ -1,4 +1,4 @@
-package com.dog.truefrienddog.navigation
+package com.akshat.eCommerce.navigation
 
 
 enum class Screen {
