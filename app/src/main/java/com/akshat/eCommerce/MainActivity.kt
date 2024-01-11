@@ -32,8 +32,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.akshat.eCommerce.navigation.RootItems
-import com.akshat.eCommerce.screen.MainScreen
-import com.akshat.eCommerce.screen.MatchScreen
+import com.akshat.eCommerce.screen.DashboardScreen
+import com.akshat.eCommerce.screen.LoginScreen
+import com.akshat.eCommerce.screen.SignUpScreen
 import com.akshat.eCommerce.screen.SplashScreen
 import com.akshat.eCommerce.ui.theme.TrueFriendDogTheme
 import com.akshat.eCommerce.utils.AppConstant
@@ -120,22 +121,25 @@ fun AppNavHost(
         modifier = modifier,
         navController = navController,
         startDestination = if (isSplashScreenFinished) {
-            RootItems.MainScreen.route
+            RootItems.Login.route
         } else {
             RootItems.Splash.route
         }
     ) {
         composable(RootItems.Splash.route) {
             SplashScreen {
-                navController.navigate(RootItems.MainScreen.route)
+                navController.navigate(RootItems.Login.route)
                 isSplashScreenFinished = true
             }
         }
-        composable(RootItems.MainScreen.route) {
-            MainScreen(navController = navController)
+        composable(RootItems.Login.route) {
+            LoginScreen(navController = navController)
         }
-        composable(RootItems.MatchScreen.route) {
-            MatchScreen(navController = navController)
+        composable(RootItems.SignUp.route) {
+            SignUpScreen(navController = navController)
+        }
+        composable(RootItems.Dashboard.route) {
+            DashboardScreen(navController = navController)
         }
     }
 }
