@@ -16,7 +16,7 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
+    primary = appPrimary,
     secondary = PurpleGrey80,
     tertiary = Pink80
 )
@@ -38,7 +38,7 @@ private val LightColorScheme = lightColorScheme(
 )
 
 @Composable
-fun TrueFriendDogTheme(
+fun eCommerceTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
@@ -61,9 +61,14 @@ fun TrueFriendDogTheme(
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }
     }
+    val colorSchemeApp = lightColorScheme(
+        primary = appPrimary,
+        secondary = appPrimary,
+        tertiary = appPrimary
+    )
 
     MaterialTheme(
-        colorScheme = colorScheme,
+        colorScheme = colorSchemeApp,
         typography = Typography,
         content = content
     )

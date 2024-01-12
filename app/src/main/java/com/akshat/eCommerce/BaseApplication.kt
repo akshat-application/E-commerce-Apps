@@ -14,6 +14,4 @@ class BaseApplication: Application() {
         super.onCreate()
         preference = Preferences(this, AppConstant.SAVE_PREFERENCE_FILENAME)
     }
-
-
 }

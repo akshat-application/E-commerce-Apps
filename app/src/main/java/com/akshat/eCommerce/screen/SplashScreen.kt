@@ -1,17 +1,25 @@
 package com.akshat.eCommerce.screen
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavController
+import com.akshat.eCommerce.navigation.RootItems
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 @Composable
-fun SplashScreen(onTimeout: () -> Unit) {
-    var splashScreenCompleted by remember { mutableStateOf(false) }
+fun SplashScreen(modifier: Modifier = Modifier,
+                 navController: NavController,) {
+    var isUserLoggedIn by remember { mutableStateOf(false) }
 //    LaunchedEffect(true) {
 //        countDown()
 //            .onEach { count ->
@@ -27,9 +35,17 @@ fun SplashScreen(onTimeout: () -> Unit) {
 //    } else {
 //        Box(Modifier.fillMaxSize().background(color = Color.Blue)) {
 //        }
-    onTimeout.invoke()
-//    }
-
+    Box(
+        Modifier
+            .fillMaxSize()
+            .background(color = Color.White)
+    ) {
+        if (isUserLoggedIn) {
+            navController.navigate(RootItems.Dashboard.route)
+        } else {
+            navController.navigate(RootItems.Login.route)
+        }
+    }
 }
 
 fun countDown(): Flow<Long> = flow {

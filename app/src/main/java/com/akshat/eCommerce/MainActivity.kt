@@ -36,7 +36,7 @@ import com.akshat.eCommerce.screen.DashboardScreen
 import com.akshat.eCommerce.screen.LoginScreen
 import com.akshat.eCommerce.screen.SignUpScreen
 import com.akshat.eCommerce.screen.SplashScreen
-import com.akshat.eCommerce.ui.theme.TrueFriendDogTheme
+import com.akshat.eCommerce.ui.theme.eCommerceTheme
 import com.akshat.eCommerce.utils.AppConstant
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -47,7 +47,7 @@ class MainActivity : ComponentActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
         setContent {
             var isNetwork by remember { mutableStateOf(isNetworkAvailable(this@MainActivity)) }
-            TrueFriendDogTheme {
+            eCommerceTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
@@ -127,10 +127,7 @@ fun AppNavHost(
         }
     ) {
         composable(RootItems.Splash.route) {
-            SplashScreen {
-                navController.navigate(RootItems.Login.route)
-                isSplashScreenFinished = true
-            }
+            SplashScreen(navController = navController)
         }
         composable(RootItems.Login.route) {
             LoginScreen(navController = navController)
