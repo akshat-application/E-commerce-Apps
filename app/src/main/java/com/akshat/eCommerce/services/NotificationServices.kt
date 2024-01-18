@@ -27,7 +27,7 @@ class NotificationServices : Service() {
             this,
             CHANNELID
         )
-            .setContentTitle("finding true friend dog")
+            .setContentTitle("e commerce")
             .setContentText(input)
             .setContentText(input1)
             .setContentText(input2)
