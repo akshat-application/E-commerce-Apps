@@ -29,7 +29,7 @@ class Preferences(context: Context) {
     }
 
     fun getIsLoggedIn(): Boolean {
-        return sharedPreferences.getBoolean(PREF_IS_MINING_ENABLE, false)
+        return sharedPreferences.getBoolean(PREF_IS_MINING_ENABLE, true)
     }
 
     fun saveIsLoggedIn(context: Context, totalpass: Boolean) {
