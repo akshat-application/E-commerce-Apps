@@ -8,10 +8,8 @@ import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
 class BaseApplication: Application() {
-    private lateinit var preference: PreferenceInterface
 
     override fun onCreate() {
         super.onCreate()
-        preference = Preferences(this, AppConstant.SAVE_PREFERENCE_FILENAME)
     }
 }

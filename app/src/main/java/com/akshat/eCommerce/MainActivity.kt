@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -69,7 +70,7 @@ class MainActivity : ComponentActivity() {
                             ) {
                                 Text(
                                     text = AppConstant.NO_INTERNET_DIALOG,
-                                    style = MaterialTheme.typography.bodySmall,
+                                    style = MaterialTheme.typography.bodyMedium,
                                     color = Color.Black
                                 )
                                 Box(
@@ -78,11 +79,15 @@ class MainActivity : ComponentActivity() {
                                         .background(color = Color.Blue)
                                         .clickable {
                                             isNetwork = isNetworkAvailable(this@MainActivity)
-                                        }
+                                        }.align(Alignment.CenterHorizontally)
                                 ) {
                                     Text(
+                                        modifier = Modifier.background(
+                                            color = MaterialTheme.colorScheme.primary,
+                                            shape = RoundedCornerShape(4.dp)
+                                        ),
                                         text = AppConstant.RETRY,
-                                        style = MaterialTheme.typography.bodySmall,
+                                        style = MaterialTheme.typography.bodyLarge,
                                         color = Color.Black
                                     )
                                 }

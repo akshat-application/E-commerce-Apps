@@ -10,8 +10,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavController
 import com.akshat.eCommerce.navigation.RootItems
+import com.akshat.eCommerce.utils.Preferences
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -40,7 +42,8 @@ fun SplashScreen(modifier: Modifier = Modifier,
             .fillMaxSize()
             .background(color = Color.White)
     ) {
-        if (isUserLoggedIn) {
+        val context = LocalContext.current
+        if (Preferences(context).getIsLoggedIn()) {
             navController.navigate(RootItems.Dashboard.route)
         } else {
             navController.navigate(RootItems.Login.route)

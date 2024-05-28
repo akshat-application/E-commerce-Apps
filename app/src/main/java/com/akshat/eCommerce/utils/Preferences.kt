@@ -7,23 +7,34 @@ import com.akshat.eCommerce.UserData
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-class Preferences(context: Context, fileName: String): PreferenceInterface {
-    private val SAVE_DATA ="saveData"
-    private val sharedPreferences: SharedPreferences = context.getSharedPreferences(fileName, Context.MODE_PRIVATE)
+class Preferences(context: Context) {
+    private val SAVE_DATA ="saveDatadfdfdfd"
+    private val PREF_IS_MINING_ENABLE = "PREF_IS_MINING_ENABLE343737473843723232"
+    private val MY_PREFERNECE_NAME = "PREFbANEDHFJHFDJHFH"
+    private val sharedPreferences: SharedPreferences = context.getSharedPreferences(MY_PREFERNECE_NAME, Context.MODE_PRIVATE)
     private val preferenceEditor:SharedPreferences.Editor = sharedPreferences.edit()
-    override fun saveData(data: UserData) {
+     fun saveData(data: UserData) {
         val gson = Gson().toJson(data)
         preferenceEditor.putString(SAVE_DATA, gson?: "")
     }
 
-    override fun getData(): UserData {
+     fun getData(): UserData {
         val savedData = sharedPreferences.getString(SAVE_DATA, "")
 //        val type = object : TypeToken<UserData>(){}.type
         return  Gson().fromJson(savedData, UserData::class.java)
     }
 
-    override fun clearData() {
+     fun clearData() {
         preferenceEditor.clear()
+    }
+
+    fun getIsLoggedIn(): Boolean {
+        return sharedPreferences.getBoolean(PREF_IS_MINING_ENABLE, false)
+    }
+
+    fun saveIsLoggedIn(context: Context, totalpass: Boolean) {
+        preferenceEditor.putBoolean(PREF_IS_MINING_ENABLE, totalpass)
+        preferenceEditor.apply()
     }
 
 }

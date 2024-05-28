@@ -21,13 +21,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.akshat.eCommerce.screen.loginUI.LoginViewModel
 import com.akshat.eCommerce.ui.theme.ButtonStyle
 import com.akshat.eCommerce.utils.AppConstant
+import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
 fun LoginScreen(
     modifier: Modifier = Modifier,
     navController: NavController,
+    viewModel: LoginViewModel = hiltViewModel()
 ) {
     var userNameValue by remember {
         mutableStateOf("")
@@ -37,14 +40,12 @@ fun LoginScreen(
     }
     Box(
         Modifier
+            .padding(20.dp)
             .fillMaxSize()
-            .background(color = Color.Blue)
+            .background(Color.White)
     ) {
         Box(
             Modifier
-                .padding(20.dp)
-                .fillMaxSize()
-                .background(Color.White)
         ) {
             Column(modifier = Modifier.padding(20.dp)) {
                 Text(
