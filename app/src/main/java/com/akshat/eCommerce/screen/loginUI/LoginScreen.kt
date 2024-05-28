@@ -42,6 +42,7 @@ fun LoginScreen(
         Modifier
             .padding(20.dp)
             .fillMaxSize()
+            .padding(10.dp)
             .background(Color.White)
     ) {
         Box(
