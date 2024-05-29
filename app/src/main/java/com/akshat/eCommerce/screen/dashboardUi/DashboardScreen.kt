@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
@@ -42,7 +43,8 @@ fun BottomItems() {
     }
     Row(
         modifier = Modifier
-            .fillMaxWidth().navigationBarsPadding()
+            .fillMaxWidth()
+            .navigationBarsPadding()
             .padding(start = 4.dp, end = 4.dp)
             .shadow(
                 elevation = 4.dp,
@@ -51,6 +53,7 @@ fun BottomItems() {
         verticalAlignment = Alignment.Bottom
     ) {
         Box(modifier = Modifier
+            .weight(1f)
             .clickable { iconOnClick = AppConstant.ICONHOME }
             .background(if (iconOnClick == AppConstant.ICONHOME) Color.Blue else Color.White)) {
             Image(
@@ -65,8 +68,9 @@ fun BottomItems() {
             )
         }
         Box(modifier = Modifier
+            .weight(1f)
             .clickable { iconOnClick = AppConstant.ICONUSER }
-            .background(if (iconOnClick == AppConstant.USER_NAME) Color.Blue else Color.White)) {
+            .background(if (iconOnClick == AppConstant.ICONUSER) Color.Blue else Color.White)) {
             Image(
                 painter = painterResource(id = R.drawable.ic_account),
                 contentDescription = "pen icon",
@@ -79,6 +83,7 @@ fun BottomItems() {
             )
         }
         Box(modifier = Modifier
+            .weight(1f)
             .clickable { iconOnClick = AppConstant.ICONMORE }
             .background(if (iconOnClick == AppConstant.ICONMORE) Color.Blue else Color.White)) {
             Image(
@@ -93,6 +98,7 @@ fun BottomItems() {
             )
         }
         Box(modifier = Modifier
+            .weight(1f)
             .clickable { iconOnClick = AppConstant.ICONCART }
             .background(if (iconOnClick == AppConstant.ICONCART) Color.Blue else Color.White)) {
             Image(
