@@ -23,4 +23,5 @@ object AppConstant {
     const val YOU = "YOU"
     const val MORE = "MORE"
     const val CART = "CART"
+    const val APP_TITLE = "APP_TITLE"
 }

@@ -12,7 +12,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Icon
 import androidx.compose.material.Scaffold
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.pullrefresh.rememberPullRefreshState
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material.rememberScaffoldState
@@ -39,8 +42,10 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.akshat.eCommerce.R
+import com.akshat.eCommerce.common.CustomTopAppBar
 import com.akshat.eCommerce.common.NavigationDrawer
 import com.akshat.eCommerce.ui.theme.ButtonStyle
+import com.akshat.eCommerce.ui.theme.newButtonStyle
 import com.akshat.eCommerce.utils.AppConstant
 import com.akshat.eCommerce.utils.ScreenDrawer
 import kotlinx.coroutines.launch
@@ -71,6 +76,25 @@ fun DashboardScreen(
     val context = LocalContext.current
 
     Scaffold(
+        modifier = Modifier.statusBarsPadding(),
+        topBar = @androidx.compose.runtime.Composable {
+            CustomTopAppBar(
+                title = AppConstant.APP_TITLE,
+                onNavigationClicked = {
+                    scope.launch {
+                        scaffoldState.drawerState.open()
+                    }
+                },
+                actionIcon = {
+                    Icon(
+                        imageVector = Icons.Filled.Refresh,
+                        contentDescription = "refresh button",
+                        tint = Color.White
+                    )
+                },
+                onActionClicked = {}
+            )
+        },
         scaffoldState = scaffoldState,
         drawerShape = customDrawerShape(),
         drawerContent = {
@@ -90,21 +114,7 @@ fun DashboardScreen(
     )
     { scaffoldPadding ->
         val screenPadding = scaffoldPadding
-        Box(modifier = modifier) {
-            Image(
-                painter = painterResource(id = R.drawable.navigation_line),
-                contentDescription = "navigation menu",
-                Modifier
-                    .statusBarsPadding()
-                    .padding(20.dp)
-                    .clickable {
-                        scope.launch {
-                            scaffoldState.drawerState.open()
-                        }
-                    },
-                alignment = Alignment.TopStart
-            )
-        }
+
     }
     BottomItems()
 }
@@ -143,7 +153,7 @@ fun BottomItems() {
                 )
                 Text(
                     text = AppConstant.HOME,
-                    style = ButtonStyle
+                    style = newButtonStyle
                 )
             }
 
@@ -165,10 +175,9 @@ fun BottomItems() {
                 )
                 Text(
                     text = AppConstant.YOU,
-                    style = ButtonStyle
+                    style = newButtonStyle
                 )
             }
-
         }
         Box(modifier = Modifier
             .weight(1f)
@@ -187,7 +196,7 @@ fun BottomItems() {
                 )
                 Text(
                     text = AppConstant.MORE,
-                    style = ButtonStyle
+                    style = newButtonStyle
                 )
             }
         }
@@ -208,7 +217,7 @@ fun BottomItems() {
                 )
                 Text(
                     text = AppConstant.CART,
-                    style = ButtonStyle
+                    style = newButtonStyle
                 )
             }
         }
