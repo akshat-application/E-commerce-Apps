@@ -16,9 +16,8 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Scaffold
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Refresh
-import androidx.compose.material.pullrefresh.rememberPullRefreshState
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material.rememberScaffoldState
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -44,7 +43,6 @@ import androidx.navigation.NavController
 import com.akshat.eCommerce.R
 import com.akshat.eCommerce.common.CustomTopAppBar
 import com.akshat.eCommerce.common.NavigationDrawer
-import com.akshat.eCommerce.ui.theme.ButtonStyle
 import com.akshat.eCommerce.ui.theme.newButtonStyle
 import com.akshat.eCommerce.utils.AppConstant
 import com.akshat.eCommerce.utils.ScreenDrawer
@@ -86,11 +84,11 @@ fun DashboardScreen(
                     }
                 },
                 actionIcon = {
-                    Icon(
-                        imageVector = Icons.Filled.Refresh,
-                        contentDescription = "refresh button",
-                        tint = Color.White
-                    )
+//                    Icon(
+//                        imageVector = Icons.Filled.Refresh,
+//                        contentDescription = "refresh button",
+//                        tint = Color.White
+//                    )
                 },
                 onActionClicked = {}
             )
@@ -129,7 +127,6 @@ fun BottomItems() {
         modifier = Modifier
             .fillMaxWidth()
             .navigationBarsPadding()
-            .padding(start = 4.dp, end = 4.dp)
             .shadow(
                 elevation = 4.dp,
                 shape = RoundedCornerShape(4.dp)
@@ -140,6 +137,7 @@ fun BottomItems() {
             .weight(1f)
             .clickable { iconOnClick = AppConstant.ICONHOME }
             .background(if (iconOnClick == AppConstant.ICONHOME) Color.Blue else Color.White)) {
+
             Column(modifier = Modifier.align(Alignment.Center)) {
                 Image(
                     painter = painterResource(id = R.drawable.ic_home),
@@ -153,7 +151,8 @@ fun BottomItems() {
                 )
                 Text(
                     text = AppConstant.HOME,
-                    style = newButtonStyle
+                    style = newButtonStyle,
+                    modifier = Modifier.align(Alignment.CenterHorizontally)
                 )
             }
 
@@ -174,6 +173,7 @@ fun BottomItems() {
                     )
                 )
                 Text(
+                    modifier = Modifier.align(Alignment.CenterHorizontally),
                     text = AppConstant.YOU,
                     style = newButtonStyle
                 )
@@ -195,6 +195,7 @@ fun BottomItems() {
                     )
                 )
                 Text(
+                    modifier = Modifier.align(Alignment.CenterHorizontally),
                     text = AppConstant.MORE,
                     style = newButtonStyle
                 )
@@ -216,6 +217,7 @@ fun BottomItems() {
                     )
                 )
                 Text(
+                    modifier = Modifier.align(Alignment.CenterHorizontally),
                     text = AppConstant.CART,
                     style = newButtonStyle
                 )
